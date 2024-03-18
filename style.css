@@ -121,7 +121,7 @@
 .container .link .link-container {
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
   grid-template-rows: auto;
@@ -203,4 +203,25 @@
   .container .image .img3{
     display: none;
   }
+}
+
+@media screen and (max-height:480px) {
+
+  .container .link {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    /* align-items: center;
+      justify-content: center; */
+    height: 200px;
+    width: 300px;
+    /* background: lightblue; */
+    backdrop-filter: blur(2px);
+    border-radius: 10%;
+    text-align: center;
+    z-index: 2;
+  }
+  
 }
