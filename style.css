@@ -1,11 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Bonbon&family=Kranky&family=Macondo&family=Truculenta:opsz,wght@12..72,100..900&display=swap");
+
+:root {
+  --txt-color: #333390;
+  --glow-color: #00ffff;
+  --clk-color: #011222;
+  --gradient1-color: #228b22;
+  --gradient2-color: #dadd98;
+  --hover-color: #89cff0;
+}
+
+body {
+  background: linear-gradient(
+    275deg,
+    var(--gradient2-color) 20%,
+    var(--gradient1-color)
+  );
+}
+.container header {
+  text-align: center;
+}
 .container header .img img {
   height: 100px;
   width: 100px;
-  overflow: hidden;
-  position: relative;
-  left: 15vw;
+  position: absolute;
+  left: 15%;
+  /* left: clamp(25px, 20%, 100px); */
   z-index: 1;
 }
+
 .container header .img {
   position: absolute;
   top: 1vw;
@@ -15,12 +37,11 @@
 }
 .container header .name {
   text-align: center;
-  display: grid;
+  /* display: grid; */
   place-content: center;
   position: relative;
-  left: 100px;
+  left: 0px;
   z-index: 1;
-
 }
 
 .container header .name h2 {
@@ -110,7 +131,7 @@
 
   /* align-items: center;
     justify-content: center; */
-  height: 300px;
+  height: 350px;
   width: 400px;
   /* background: lightblue; */
   backdrop-filter: blur(2px);
@@ -127,88 +148,122 @@
   grid-template-rows: auto;
   row-gap: 20px;
 }
-.container .link .link-container a{
-     text-decoration: none;
-     height: 30px;
-     width: 200px;
-     border-radius: 50px;
-     border:2px solid #00ffff;
-     filter: grayscale(12%);
-     text-align: center;
-     padding-top: 7px;
-     
+.container .link .link-container a,
+.container .link .link-container button {
+  color: var(--txt-color);
+  text-decoration: none;
+  height: 30px;
+  width: 200px;
+  border-radius: 50px;
+  border: 2px solid var(--glow-color);
+  font-family: "Macondo", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  filter: grayscale(12%);
+  text-align: center;
+  padding-top: 7px;
 }
-.container .link .link-container  a{
-    box-shadow: 0 0 20px #00ffff
-    ,0 0 40px #00ffff
-    ,0 0 4px #00ffff inset;
-    z-index: 2;
+.container .link .link-container button {
+  height: 40px;
 }
-.container .link .link-container  a:active{
-    box-shadow: 0 0 20px #161e1e
-    ,0 0 40px #161e1e;
+.container .link .link-container a,
+.container .link .link-container button {
+  background: transparent;
+  box-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color),
+    0 0 4px var(--glow-color) inset;
+  z-index: 2;
+}
+.container .link .link-container a:hover,
+.container .link .link-container button:hover {
+  box-shadow: 0 0 20px var(--hover-color), 0 0 40px var(--hover-color),
+    0 0 60px var(--hover-color);
+}
+.container .link .link-container a:active,
+.container .link .link-container button:active {
+  box-shadow: 0 0 20px var(--clk-color), 0 0 40px var(--clk-color);
 }
 
-
-
-.container .image .img1
-{
-    position: absolute;
-    top:0;
-    right: 0;
-}
-.container .image .img2{
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-}
-.container .image .img3{
+.container .image .img1 {
   position: absolute;
   top: 0;
-  
+  right: 0;
+}
+.container .image .img2 {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+}
+.container .image .img3 {
+  position: absolute;
+  top: 0;
+
   /* display: none; */
   left: 0;
   transform: rotateY(180deg);
 }
 
+@media screen and (min-width: 769px) and (max-width: 1040px) {
+  /* body{
+    display: none;
+  } */
+  .container header .img img {
+    position: absolute;
+    left: 5%;
+  }
+}
+@media screen and (min-width: 421px) and (max-width: 768px) {
+  /* body{
+    display: none;
+  } */
+  .container header .img img {
+    position: absolute;
+    left: 1%;
+  }
+
+  .container header .name h2 {
+    font-size: 16px;
+  }
+  .container header .name p {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
 @media screen and (max-width: 480px) {
   body {
-    
   }
-  
-  .container header .name{
+
+  .container header .name {
     text-align: center;
     position: absolute;
+    left: 20vw;
   }
-  .container header .img img
-  {
+  .container header .img img {
     position: absolute;
     top: 0;
     left: 0;
     height: 80px;
     width: 80px;
   }
-  .container header .name h2{
+  .container header .name h2 {
     font-size: 2.3vw;
-    
+
     text-align: center;
   }
-  .container header .name p{
+  .container header .name p {
     margin-top: -1.2vw;
     font-size: 2.3vw;
-    
+
     text-align: center;
-    
   }
-  .container .image .img3{
+  .container .image .img3 {
     display: none;
   }
 }
 
-@media screen and (max-height:480px) {
-
+@media screen and (max-height: 480px) {
   .container .link {
-    
     position: absolute;
     top: 50%;
     left: 50%;
@@ -224,5 +279,4 @@
     text-align: center;
     z-index: 2;
   }
-  
 }
